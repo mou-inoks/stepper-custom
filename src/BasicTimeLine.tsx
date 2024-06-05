@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+
+
 
 export default function BasicTimeline() {
     const [first, setFirst] = useState(true);
@@ -19,13 +20,14 @@ export default function BasicTimeline() {
                     setFirst(true)
                     setThird(false)
                 }}>  <TimelineSeparator>
-                    <TimelineDot />
+                    <TimelineDot color={first ? 'success' : 'error'}/>
                 </TimelineSeparator></button>
                 {first && <TimelineContent>
                     this is {first ? "true": "false"}
                 </TimelineContent>}
-
             </TimelineItem>
+
+
             <TimelineItem>
             Facility
                 <button onClick={() => {
@@ -33,14 +35,15 @@ export default function BasicTimeline() {
                     setFirst(false)
                     setThird(false)
                 }}>  <TimelineSeparator>
-                    <TimelineDot />
+                    <TimelineDot color={second ? 'success' : 'error'} />
                 </TimelineSeparator></button>
               
                 {second &&<TimelineContent>
                     this is {second ? "True" : "False"}
                 </TimelineContent> }
-                
             </TimelineItem>
+
+
             <TimelineItem>
             Facility
             <button onClick={() => {
@@ -48,7 +51,7 @@ export default function BasicTimeline() {
                     setFirst(false)
                     setThird(true)
                 }}>  <TimelineSeparator>
-                    <TimelineDot />
+                    <TimelineDot color={third ? 'success' : 'error'}/>
                 </TimelineSeparator></button>
                 {third && <TimelineContent>
                     this is {third ? "True" : "False"}
